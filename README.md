@@ -1,39 +1,133 @@
 ### Note: Our plan is to create a similar crm system. like odoo have.
 
+# 🚀 Smart CRM – A Modern, Open-Source CRM
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](CONTRIBUTING.md)
+[![GitHub Discussions](https://img.shields.io/github/discussions/vedantbhavsar/open-crm?style=for-the-badge&label=Discussions)](https://github.com/vedantbhavsar/open-crm/discussions)
 
-## Getting Started
+This is the beginning of **Open CRM**: a developer-first, open-source Customer Relationship Management system built for the modern web. The goal is to create a powerful, self-hostable, and beautiful CRM that teams and individuals will love to use.
 
-First, run the development server:
+The project has been initialized with a solid foundation. **Now is the perfect time to get involved and shape its future.**
+
+## The Vision
+
+We are building a CRM that is:
+
+- **Developer-First:** With a clean codebase, modern tooling, and a focus on extensibility, contributing should be a joy.
+- **Truly Open-Source:** No paid tiers, no feature-gating. All features will be available under the MIT license. Fork it, customize it, own your data.
+- **Modern & Performant:** Leveraging the best of the React and Node.js ecosystems to create a fast, responsive, and reliable user experience.
+
+## The Roadmap: Planned Features
+
+This is what we plan to build. Your contributions can help bring this list to life.
+
+#### Core Functionality
+
+- [ ] **Authentication:** Secure user login (email/password, social logins).
+- [ ] **Contact Management:** CRUD for leads, contacts, and companies.
+- [ ] **Deal Management:** Visual sales pipelines with customizable stages.
+- [ ] **Task & Activity Management:** Assign and track tasks, log calls, and schedule meetings.
+
+#### Collaboration & Productivity
+
+- [ ] **Team Management:** Invite members and manage roles (Admin, Manager, Sales).
+- [...and more]
+
+#### Advanced Features
+
+- [ ] **Dashboard & Analytics:** Key metrics, charts, and revenue forecasting.
+- [ ] **Global Search:** A single, powerful search bar to find anything.
+- [ ] **Public API:** A REST API for third-party integrations.
+
+## The Foundation: Technology Stack
+
+The initial project structure is built on a solid, modern foundation designed for scalability and a great developer experience.
+
+- **Framework:** ▲ **Next.js 14** (App Router)
+- **Language:** T **TypeScript**
+- **Database:** 🐘 **PostgreSQL** with **Prisma** ORM
+- **Styling:** 🎨 **Tailwind CSS** with **ShadCN UI**
+- **Authentication:** 🔐 **NextAuth.js**
+- **Forms & Validation:** 📋 **React Hook Form** & **Zod**
+- **Deployment:** ▲ **Vercel**
+
+## 🤝 We're Looking for Contributors!
+
+This project is in its infancy, and you can make a significant impact. We welcome contributors of all skill levels.
+
+**How you can help:**
+
+- **Build a core feature:** Pick an unchecked item from the roadmap.
+- **Set up UI components:** Help build out the component library with ShadCN UI.
+- **Improve the developer experience:** Enhance documentation, scripts, or testing.
+- **Discuss the architecture:** Join the [Discussions](https://github.com/suryawansh/smart-crm/discussions) and help shape the technical direction.
+
+## 🛠️ Getting Started (for Development)
+
+Ready to contribute? Here’s how to get the project running locally.
+
+### 1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/suryawansh/smart-crm.git
+cd open-crm
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+We recommend using `pnpm`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm install
+```
 
-## Learn More
+### 3. Set Up Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file by copying the example.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cp .env.example .env.local
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You'll need to provide:
 
-## Deploy on Vercel
+- `DATABASE_URL`: Your PostgreSQL connection string.
+- `NEXTAUTH_SECRET`: A secret key for session encryption.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 4. Set Up the Database
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The easiest way to run PostgreSQL locally is with Docker.
+
+```bash
+# Start the PostgreSQL container (a docker-compose.yml is included)
+docker-compose up -d
+
+# Apply the database schema
+pnpm prisma migrate dev
+```
+
+### 5. Run the Development Server
+
+```bash
+pnpm dev
+```
+
+The app will be available at `http://localhost:3000`.
+
+## Project Structure
+
+The boilerplate is set up with a logical structure to make development intuitive.
+
+```
+/app             # Next.js App Router pages and layouts
+/components      # Shared UI components (built with ShadCN UI)
+/lib             # Utility functions and shared libraries
+/prisma          # Prisma schema, migrations, and seeds
+/types           # Global TypeScript type definitions
+/middleware.ts   # Middleware for authentication and authorization
+```
+
+## License
+
+This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
